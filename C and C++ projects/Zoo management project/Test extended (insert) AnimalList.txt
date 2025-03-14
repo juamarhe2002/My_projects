@@ -1,0 +1,956 @@
+// function Test extended of Animal List.
+
+void testExtendedAnimalList(){
+
+    AnimalList Auto2;
+    AnimalList* List2 = new AnimalList();
+
+    cout << endl << "Auto2: Adding a new employee to the empty list (Ref)." << endl;
+    AnimalHab AutoHab5(5, "AutoAnimal5", 1, 2, 1);
+    Auto2.addAnimalHab(&AutoHab5);
+    Auto2.print();
+
+    cout << endl << "List2 : Adding a new employee to the empty list (Ref)." << endl;
+    AnimalHab* DynHab5 = new AnimalHab(5, "DynAnimal5", 1, 2, 1);
+    List2->addAnimalHab(DynHab5);
+    List2->print();
+
+    cout << endl << "Adding a new element at the beginning of the list (Ref)." << endl;
+    cout << endl << "Auto2" << endl;
+    AnimalHab AutoHab2(2, "AutoAnimal2", 1, 2, 1);
+    Auto2.addAnimalHab(&AutoHab2);
+    Auto2.print();
+    cout << endl << "List 1" << endl;
+    AnimalHab* DynHab2 =  new AnimalHab(2, "DynAnimal2", 1, 2, 1);
+    List2->addAnimalHab(DynHab2);
+    List2->print();
+
+    cout << endl << "Adding a new element at the middle of the list (Ref)." << endl;
+    cout << endl << "Auto2" << endl;
+    AnimalHab AutoHab4(4, "AutoAnimal4", 1, 2, 1);
+    Auto2.addAnimalHab(&AutoHab4);
+    Auto2.print();
+    cout << endl << "List 1" << endl;
+    AnimalHab* DynHab4 = new AnimalHab(4, "DynAnimal4", 1, 2, 1);
+    List2->addAnimalHab(DynHab4);
+    List2->print();
+
+    cout << endl << "Adding a new element at the end of the list (Ref)." << endl;
+    cout << endl << "Auto2" << endl;
+    AnimalHab AutoHab6(6, "AutoAnimal6", 1, 2, 1);
+    Auto2.addAnimalHab(&AutoHab6);
+    Auto2.print();
+    cout << endl << "List 1" << endl;
+    AnimalHab* DynHab6 = new AnimalHab(6, "DynAnimal6", 1, 2, 1);
+    List2->addAnimalHab(DynHab6);
+    List2->print();
+
+    cout << endl << "Adding a new element with the same Habitat number at the beginning, middle and end (Ref)." << endl;
+    cout << endl << "Auto2" << endl;
+    AnimalHab AutoHabRep2(2, "RepAutoAnimal2", 1, 2, 1);
+    Auto2.addAnimalHab(&AutoHabRep2);
+    AnimalHab AutoHabRep4(4, "RepAutoAnimal4", 1, 2, 1);
+    Auto2.addAnimalHab(&AutoHabRep4);
+    AnimalHab AutoHabRep6(6, "RepAutoAnimal6", 1, 2, 1);
+    Auto2.addAnimalHab(&AutoHabRep6);
+    Auto2.print();
+    cout << endl << "List 1" << endl;
+    AnimalHab* DynHabRep2= new AnimalHab(2, "RepDynAnimal2", 1, 2, 1);
+    List2->addAnimalHab(DynHabRep2);
+    AnimalHab* DynHabRep4= new AnimalHab(4, "RepDynAnimal4", 1, 2, 1);
+    List2->addAnimalHab(DynHabRep4);
+    AnimalHab* DynHabRep6= new AnimalHab(6, "RepDynAnimal6", 1, 2, 1);
+    List2->addAnimalHab(DynHabRep6);
+    List2->print();
+
+    cout << endl << "Eliminating Repeated elements with the destructor." << endl;
+    cout << endl << "Automatic" << endl;
+    //AutoHabRep2.~AnimalHab();
+    //AutoHabRep4.~AnimalHab();
+    //AutoHabRep6.~AnimalHab();
+    cout << endl << "Dynamic" << endl;
+    DynHabRep2->~AnimalHab();
+    DynHabRep4->~AnimalHab();
+    DynHabRep6->~AnimalHab();
+
+    cout << endl << "Activities corresponding day 2......................................................" << endl;
+    cout << endl << "New day" << endl;
+    cout << endl << "Auto2" << endl;
+    Auto2.new_day(2);
+    Auto2.print();
+    cout << endl << "List 2" << endl;
+    List2->new_day(2);
+    List2->print();
+
+    cout << endl << "Setting general food environment." << endl;
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_foodReceived(1);
+    AutoHab4.set_foodReceived(1);
+    AutoHab5.set_foodReceived(1);
+    AutoHab6.set_foodReceived(1);
+
+    AutoHab2.set_foodLastTime(2);
+    AutoHab4.set_foodLastTime(2);
+    AutoHab5.set_foodLastTime(2);
+    AutoHab6.set_foodLastTime(2);
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_foodReceived(1);
+    DynHab4->set_foodReceived(1);
+    DynHab5->set_foodReceived(1);
+    DynHab6->set_foodReceived(1);
+
+    DynHab2->set_foodLastTime(2);
+    DynHab4->set_foodLastTime(2);
+    DynHab5->set_foodLastTime(2);
+    DynHab6->set_foodLastTime(2);
+
+    cout << endl << "Setting general clean environment." << endl;
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_habitatCleaned(1);
+    AutoHab4.set_habitatCleaned(1);
+    AutoHab5.set_habitatCleaned(1);
+    AutoHab6.set_habitatCleaned(1);
+
+    AutoHab2.set_cleanLastTime(2);
+    AutoHab4.set_cleanLastTime(2);
+    AutoHab5.set_cleanLastTime(2);
+    AutoHab6.set_cleanLastTime(2);
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_habitatCleaned(1);
+    DynHab4->set_habitatCleaned(1);
+    DynHab5->set_habitatCleaned(1);
+    DynHab6->set_habitatCleaned(1);
+
+    DynHab2->set_cleanLastTime(2);
+    DynHab4->set_cleanLastTime(2);
+    DynHab5->set_cleanLastTime(2);
+    DynHab6->set_cleanLastTime(2);
+
+    cout << endl << "Checking the animals." << endl;
+    int c = 0;
+    int reported = 0;
+
+    cout << endl << "Reporting issues on animal at the beginning of the list." << endl;
+
+    cout << endl << "Setting food received to 1" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_foodReceived(1);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_foodReceived(1);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 0" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_foodReceived(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_foodReceived(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 2" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_foodReceived(2);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_foodReceived(2);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 3" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_foodReceived(3);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_foodReceived(3);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting Last Time food to 0" << endl;
+    AutoHab2.set_foodReceived(1);
+    DynHab2->set_foodReceived(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Assigning employee at the beginning of the list." << endl;
+    cout << endl << "Auto" << endl;
+    Employee AutoEmployee1(1, "AutoEmp1", "Caretaker");
+    Auto2.set_Caretaker(2, &AutoEmployee1);
+    Auto2.print();
+    cout << endl << "List 1" << endl;
+    Employee* DynEmployee1 = new Employee(1, "DynEmp1", "Caretaker");
+    List2->set_Caretaker(2, DynEmployee1);
+    List2->print();
+
+    cout << endl << "Re-running the last check." << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    Auto2.AnimalKills(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    List2->AnimalKills(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 1" << endl;
+    AutoHab2.set_foodLastTime(2);
+    DynHab2->set_foodLastTime(2);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_habitatCleaned(1);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_habitatCleaned(1);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 3" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_habitatCleaned(3);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_habitatCleaned(3);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 4" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_habitatCleaned(4);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_habitatCleaned(4);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting last time cleaned to 0 and current day to 3" << endl;
+    AutoHab2.set_habitatCleaned(1);
+    DynHab2->set_habitatCleaned(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 3);
+    c = Auto2.case_AnimalCondition(reported, 3, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 3);
+    c = List2->case_AnimalCondition(reported, 3, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Re-running last test but implementing the function AnimalEscapes." << endl;
+    AutoHab2.set_habitatCleaned(1);
+    DynHab2->set_habitatCleaned(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab2.set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 3);
+    c = Auto2.case_AnimalCondition(reported, 3, 0);
+    Auto2.AnimalEscapes(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab2->set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 3);
+    c = List2->case_AnimalCondition(reported, 3, 0);
+    List2->AnimalEscapes(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Reporting issues on animal at the middle of the list." << endl;
+
+    cout << endl << "Setting food received to 1" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_foodReceived(1);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_foodReceived(1);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 0" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_foodReceived(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_foodReceived(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 2" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_foodReceived(2);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_foodReceived(2);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 3" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_foodReceived(3);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_foodReceived(3);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting Last Time food to 0" << endl;
+    AutoHab5.set_foodReceived(1);
+    DynHab5->set_foodReceived(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Assigning employee at the beginning of the list." << endl;
+    cout << endl << "Auto" << endl;
+    Employee AutoEmployee2(1, "AutoEmp2", "Caretaker");
+    Auto2.set_Caretaker(5, &AutoEmployee2);
+    Auto2.print();
+    cout << endl << "List 1" << endl;
+    Employee* DynEmployee2 = new Employee(1, "DynEmp2", "Caretaker");
+    List2->set_Caretaker(5, DynEmployee2);
+    List2->print();
+
+    cout << endl << "Re-running the last check." << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    Auto2.AnimalKills(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    List2->AnimalKills(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 1" << endl;
+    AutoHab5.set_foodLastTime(2);
+    DynHab5->set_foodLastTime(2);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_habitatCleaned(1);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_habitatCleaned(1);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 3" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_habitatCleaned(3);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_habitatCleaned(3);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 4" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_habitatCleaned(4);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_habitatCleaned(4);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting last time cleaned to 0 and current day to 3" << endl;
+    AutoHab5.set_habitatCleaned(1);
+    DynHab5->set_habitatCleaned(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 3);
+    c = Auto2.case_AnimalCondition(reported, 3, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 3);
+    c = List2->case_AnimalCondition(reported, 3, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Re-running last test but implementing the function AnimalEscapes." << endl;
+    AutoHab5.set_habitatCleaned(1);
+    DynHab5->set_habitatCleaned(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab5.set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 3);
+    c = Auto2.case_AnimalCondition(reported, 3, 0);
+    Auto2.AnimalEscapes(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab5->set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 3);
+    c = List2->case_AnimalCondition(reported, 3, 0);
+    List2->AnimalEscapes(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Reporting issues on animal at the end of the list." << endl;
+
+    cout << endl << "Setting food received to 1" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_foodReceived(1);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_foodReceived(1);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 0" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_foodReceived(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_foodReceived(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 2" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_foodReceived(2);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_foodReceived(2);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting food received to 3" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_foodReceived(3);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_foodReceived(3);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting Last Time food to 0" << endl;
+    AutoHab6.set_foodReceived(1);
+    DynHab6->set_foodReceived(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Assigning employee at the beginning of the list." << endl;
+    cout << endl << "Auto" << endl;
+    Employee AutoEmployee3(1, "AutoEmp3", "Caretaker");
+    Auto2.set_Caretaker(6, &AutoEmployee3);
+    Auto2.print();
+    cout << endl << "List 1" << endl;
+    Employee* DynEmployee3 = new Employee(1, "DynEmp3", "Caretaker");
+    List2->set_Caretaker(6, DynEmployee3);
+    List2->print();
+
+    cout << endl << "Re-running the last check." << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    Auto2.AnimalKills(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_foodLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    List2->AnimalKills(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 1" << endl;
+    AutoHab6.set_foodLastTime(2);
+    DynHab6->set_foodLastTime(2);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_habitatCleaned(1);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_habitatCleaned(1);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 3" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_habitatCleaned(3);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_habitatCleaned(3);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting cleaning to 4" << endl;
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_habitatCleaned(4);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 2);
+    c = Auto2.case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_habitatCleaned(4);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 2);
+    c = List2->case_AnimalCondition(reported, 2, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Setting last time cleaned to 0 and current day to 3" << endl;
+    AutoHab6.set_habitatCleaned(1);
+    DynHab6->set_habitatCleaned(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 3);
+    c = Auto2.case_AnimalCondition(reported, 3, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 3);
+    c = List2->case_AnimalCondition(reported, 3, 0);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Re-running last test but implementing the function AnimalEscapes." << endl;
+    AutoHab6.set_habitatCleaned(1);
+    DynHab6->set_habitatCleaned(1);
+
+    cout << endl << "Auto2" << endl;
+    AutoHab6.set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = Auto2.chk_AnimalsCondition(Auto2.get_numHabHead(), 3);
+    c = Auto2.case_AnimalCondition(reported, 3, 0);
+    Auto2.AnimalEscapes(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "Auto2 (after)" << endl;
+    Auto2.print();
+
+    cout << endl << "List 2" << endl;
+    DynHab6->set_cleanLastTime(0);
+    cout << endl << "Checking......" << endl;
+    reported = List2->chk_AnimalsCondition(List2->get_numHabHead(), 3);
+    c = List2->case_AnimalCondition(reported, 3, 0);
+    List2->AnimalEscapes(reported);
+    cout << endl << "Reported an issue on habitat: " << reported;
+    cout << "\t With case = " << c << endl;
+    cout << endl << "List 2 (after)" << endl;
+    List2->print();
+
+    cout << endl << "Activities corresponding day 3......................................................" << endl;
+    cout << endl << "New day" << endl;
+    cout << endl << "Auto2" << endl;
+    Auto2.new_day(3);
+    Auto2.print();
+    cout << endl << "List 2" << endl;
+    List2->new_day(3);
+    List2->print();
+
+    cout << endl << "Eliminating lists with the destructor" << endl;
+    cout << endl << "Auto " << endl;
+    Auto2.~AnimalList();
+    cout << endl << "List 2" << endl;
+    List2->~AnimalList();
+
+    cout << endl << "After elimination of lists" << endl;
+    cout << endl << "Auto2" << endl;
+    Auto2.print();
+    cout << endl << "List 2" << endl;
+    List2->print();
+
+    cout << endl << "END....................................................................." << endl;
+
+}
