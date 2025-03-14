@@ -31,13 +31,21 @@ function Form({route, method}) {
         }
     }
 
-    return <div className="container">
-    <form onSubmit={handleSubmit}>
-        <h1>{name}</h1>
-        <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username"/>
-        <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password"/>
-        <button type="submit" className="btn btn-primary">{name}</button>
-    </form>
+    return <div className="d-flex align-items-center justify-content-center vh-100">
+        <form onSubmit={handleSubmit} className="mb-9">
+            <div className="form-group mb-3">
+                <h1>{name}</h1>
+            </div>
+            <div className="form-group mb-3">
+                <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required/>
+                <div className="invalid-feedback">Please enter an username!</div>
+            </div>
+            <div className="form-group mb-3">
+                <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required/>
+                <div className="invalid-feedback">Please enter your password!</div>
+            </div>
+            <button type="submit" className="btn btn-primary mb-3">{name}</button>
+        </form>
     </div> 
 }
 

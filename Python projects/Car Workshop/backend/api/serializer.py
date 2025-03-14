@@ -27,6 +27,13 @@ class EstimateSerializer(serializers.ModelSerializer):
         model = Estimate
         fields = ["Description", "ExpectedCost", "Accepted"]
 
+    # def update(self, instance, validated_data):
+    #     instance.Ticket = validated_data('Ticket', instance.Ticket)
+    #     instance.Description = validated_data('Description', instance.Description)
+    #     instance.ExpectedCost = validated_data('ExpectedCost', instance.ExpectedCost)
+    #     instance.Accepted = validated_data('Accepted', instance.Accepted)
+    #     return instance
+
 class TicketSerializer(serializers.ModelSerializer):
     Estimate = EstimateSerializer()
     class Meta:
@@ -42,7 +49,28 @@ class TicketSerializer(serializers.ModelSerializer):
         return ticket
     
     def update(self, instance, validated_data):
-        return super().update(instance, validated_data)
+        instance.id = validated_data.get('id', instance.id)
+        instance.Brand = validated_data.get('Brand', instance.Brand)
+        instance.Model = validated_data.get('Model', instance.Model)
+        instance.RegistrationId = validated_data.get('RegistrationId', instance.RegistrationId)
+        instance.Problem = validated_data.get('Problem')
+        instance.EmployeeAssigned = validated_data.get('EmployeeAssigned', instance.EmployeeAssigned)
+        instance.Status = validated_data.get('Status', instance.Status)
+        instance.TotalPrice = validated_data.get('TotalPrice', instance.TotalPrice)
+        
+        estimate_data = validated_data.pop('Estimate')
+        estimate = instance.Estimate
+
+        instance.save()
+
+        estimate.Description = estimate_data.get('Description', estimate.Description)
+        estimate.ExpectedCost = estimate_data.get('ExpectedCost', estimate.ExpectedCost)
+        estimate.Accepted = estimate_data.get('Accepted', estimate.Accepted)
+        estimate.save()
+
+        # ticket = Ticket.objects.get(id= instance.id)
+        # return super().update(instance, validated_data)
+        return instance
 
 class PartSerializer(serializers.ModelSerializer):
     class Meta:

@@ -46,7 +46,7 @@ class TicketList(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
 
-        if user.username == "admin_1":
+        if user.username == "admin":
             ticket_list = Ticket.objects.all()
         else:
             ticket_list = Ticket.objects.filter(Q(EmployeeAssigned = "None") | Q(EmployeeAssigned = user.username))
@@ -64,16 +64,26 @@ class TicketUpdate(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
-        ticket = Ticket.objects.get(id = pk)
-        return Response(ticket.toJSON())
+        try:
+            ticket = Ticket.objects.get(id = pk)
+        except Exception as e:
+            print('Ticket not found, ', e)
+        
+        serializer = self.serializer_class(ticket)
+        return Response(serializer.data)
 
 class TicketView(generics.GenericAPIView):
     serializer_class = TicketSerializer
     permission_classes = [IsAuthenticated]
 
     def get(self, request, pk):
-        ticket = Ticket.objects.get(id = pk)
-        return Response(ticket)
+        try:
+            ticket = Ticket.objects.get(id = pk)
+        except Exception as e:
+            print('Ticket not found, ', e)
+
+        serializer = self.serializer_class(ticket)
+        return Response(serializer.data)
 
 class TicketDelete(generics.DestroyAPIView):
     serializer_class = TicketSerializer
@@ -82,7 +92,7 @@ class TicketDelete(generics.DestroyAPIView):
     def get_queryset(self):
         user = self.request.user
 
-        if user.username == "admin_1":
+        if user.username == "admin":
             ticket_list = Ticket.objects.all()
         else:
             ticket_list = Ticket.objects.filter(Q(EmployeeAssigned = "None") | Q(EmployeeAssigned = user.username))
