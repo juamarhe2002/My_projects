@@ -1,0 +1,17 @@
+{
+    "files": [
+        "CW_AddEmployee.py",
+        "CW_AddParts.py",
+        "CW_CreateTicket.py",
+        "CW_DeleteTicket.py",
+        "CW_EmployeeManager.py",
+        "CW_Estimate.py",
+        "CW_FinalCost.py",
+        "CW_MainWindow.py",
+        "CW_Parts.py",
+        "CW_RemoveEmployee.py",
+        "CW_TicketManager.py",
+        "Practice_Test1.py",
+        "main.py"
+    ]
+}

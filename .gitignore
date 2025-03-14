@@ -1,6 +1,7 @@
 # Environmental variables and external libraries #
 ##################################################
 .venv/
+venv/
 frontend/node_modules/
 
 # Logs #
@@ -23,6 +24,8 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
+.qtcreator
+.ropeproject
 .DS_Store
 *.suo
 *.ntvs*
@@ -58,6 +61,7 @@ dist-ssr
 *.sql
 *.sqlite
 *.sqlite3
+*.db
 
 # OS generated files #
 ######################
@@ -74,3 +78,4 @@ Thumbs.db
 ed*
 *.pyc
 cmake-build-debug
+__pycache__
